@@ -2,9 +2,10 @@
 
 function addLoadEvent(func) {
     var oldonload = window.onload;
-    if (typeof oldonload != "function") {
+    //没有绑定函数，添加新函数
+    if (typeof window.onload != "function") {
         window.onload = func;
-    } else {
+    } else {    //已经绑定函数，将新函数追加到现有指令的末尾
         window.onload = function() {
             oldonload();
             func();
